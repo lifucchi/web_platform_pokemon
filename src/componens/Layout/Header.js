@@ -7,7 +7,7 @@ import HeaderPokemonButton from "./HeaderPokemonButton";
 const Header = props => {
     return <Fragment>
         <header className={classes.header}>
-            <h1>Pokemon</h1>
+            {/* <h1>Pokemon</h1> */}
             <HeaderPokemonButton />
         </header>
         <div className={classes['main-image']}>

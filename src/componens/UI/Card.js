@@ -1,10 +1,10 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import './Card.css';
+import React from "react";
+import classes from './Cards.module.css';
 
-// function Card(props){
-//     const classes = 'card ' + props.className;
-//     return <div className={classes}>{props.children}</div>;
-// }
 
-// export default Card;
+const Card = (props) => {
+    return <div className={classes.card}>{props.children}</div>
+
+};
+
+export default Card;
