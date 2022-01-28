@@ -3,10 +3,10 @@ import classes from './HeaderPokemonButton.module.css';
 import CartIcon from '../MyPokemon/MyPokemonIcon';
 
 
-const HeaderPokemonButton = () => {
+const HeaderPokemonButton = (props) => {
     return (
 
-        <button className={classes.button}>
+        <button className={classes.button} onClick={props.onClick} >
             <span className={classes.icon} ></span>
             <CartIcon/>
             <span>My Pokemon</span>
