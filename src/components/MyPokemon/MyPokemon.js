@@ -12,10 +12,14 @@ const MyPokemons = (props) => {
     const hasItem = myPokemonctx.items.length > 0;
 
     const myPokemonItemRemoveHandler = id => {
-
+        myPokemonctx.removeItem(id);
     };
 
     const myPokemonItemAddHandler = item => {
+        // console.log(item);
+        myPokemonctx.addItem(
+            { id :item.id, name: item.name , amount: 1 }
+            );
 
     };
 
