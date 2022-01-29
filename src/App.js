@@ -1,29 +1,29 @@
-import Header from "./componens/Layout/Header";
-import React, { Fragment, useState} from "react";
-import Pokemon from "./componens/Pokemon/Pokemon";
-import MyPokemon from './componens/MyPokemon/MyPokemon'
+import Header from "./components/Layout/Header";
+import React, { Fragment, useState } from "react";
+import Pokemon from "./components/Pokemon/Pokemon";
+import MyPokemon from './components/MyPokemon/MyPokemon'
+import  MyPokemonProvider  from "./store/MyPokemonProvider";
 
 function App() {
     const [myPokemonDetailIsShown, setMyPokemonDetailIsShown] = useState(false);
-    
+
     const showPokemonDetailHandler = () => {
         setMyPokemonDetailIsShown(true);
     };
 
-    const hidePokemonDetailHandler= () => {
+    const hidePokemonDetailHandler = () => {
         setMyPokemonDetailIsShown(false);
     }
 
-
-
     return (
-        <Fragment>
-            { myPokemonDetailIsShown && <MyPokemon onClose={hidePokemonDetailHandler} />}
-            <Header onShowMyPokemon = {showPokemonDetailHandler} />
+        <MyPokemonProvider>
+            {myPokemonDetailIsShown && <MyPokemon onClose={hidePokemonDetailHandler} />}
+            <Header onShowMyPokemon={showPokemonDetailHandler} />
+            
             <main>
                 <Pokemon />
             </main>
-        </Fragment>
+        </MyPokemonProvider>
     );
 }
 
