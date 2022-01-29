@@ -3,8 +3,6 @@ import CartIcon from '../MyPokemon/MyPokemonIcon';
 import MyPokemonContext from "../../store/myPokemon-context";
 import classes from './HeaderPokemonButton.module.css';
 
-
-
 const HeaderPokemonButton = (props) => {
     const MyPokemonCtx = useContext(MyPokemonContext);
     const numberMyPokemonItems= MyPokemonCtx.items.reduce((curNumber,item)=>{

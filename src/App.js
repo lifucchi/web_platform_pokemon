@@ -1,11 +1,15 @@
 import Header from "./components/Layout/Header";
-import React, { Fragment, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Pokemon from "./components/Pokemon/Pokemon";
 import MyPokemon from './components/MyPokemon/MyPokemon'
 import  MyPokemonProvider  from "./store/MyPokemonProvider";
 
 function App() {
     const [myPokemonDetailIsShown, setMyPokemonDetailIsShown] = useState(false);
+
+    // useEffect(()=>{
+    //     localStorage.setItem('modal', ahaha)
+    // },[myPokemonDetailIsShown]);
 
     const showPokemonDetailHandler = () => {
         setMyPokemonDetailIsShown(true);

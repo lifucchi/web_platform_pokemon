@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import { useEffect } from "react/cjs/react.development";
 import MyPokemonContext from "./myPokemon-context";
 
 
@@ -9,23 +10,13 @@ const defaultMyPokemonsState = {
 
 const myPokemonReducer = (state, action) => {
     if (action.type === 'ADD') {
-        // const updatedTotalAmount =
-        //     state.totalAmount + action.item.price * action.item.amount;
-        let count = 0
-        count = count + 1;
-        // console.log("iterasi " + count)
         // console.log(state);
         // console.log(action);
         const existingCartItemIndex = state.items.findIndex(
             (item) => item.id === action.item.id
         );
-        // console.log(existingCartItemIndex);
         const existingCartItem = state.items[existingCartItemIndex];
-        // console.log("existingCartItem")
-        // console.log(existingCartItem)
         let updatedItems;
-
-        // console.log();
 
         if (existingCartItem) {
             const updatedItem = {
@@ -63,54 +54,28 @@ const myPokemonReducer = (state, action) => {
             updatedItems = [...state.items];
             updatedItems[existingCartItemIndex] = updatedItem;
           }
-        // const existingCartItemIndex = state.items.findIndex(
-        //     (item) => item.id === action.item.id
-        // );
-        // console.log(existingCartItemIndex);
-        
-        // const existingItem = state.items[existingCartItemIndex];
-
-        // let updatedItems;
-        // if (existingItem.amount ===1 ){
-        //     updatedItems = state.items.filter(item => item.id !== action.id);
-
-        // }
-
-
-        // else {
-        //     const updatedItem = {id:existingItem.id,name:existingItem.name,amount: existingItem.amount-1};
-        //     updatedItems= [...state.items];
-        //     updatedItems[existingCartItemIndex] = updatedItem;
-
-        //     return {
-        //         items: updatedItems
-
-        //     };
-
-        // }
-
+     
         return {
             items: updatedItems,
           };
-
     }
-
-
     return defaultMyPokemonsState;
 }
 
-const MyPokemonProvider = props => {
+const MyPokemonProvider = (props) => {
 
-    const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState)
+    const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState, () =>{
+        const localData = localStorage.getItem('items');
+        return localData ? JSON.parse(localData) : [];
+    })
+
 
     const addItemToMyPokemonHandler = item => {
         dispatchMyPokemosAction({ type: 'ADD', item: item });
-
     };
 
     const removeItemFromMyPokemonHandler = id => {
         dispatchMyPokemosAction({ type: 'REMOVE', id: id })
-
     };
 
     const pokemonContex = {
@@ -118,8 +83,13 @@ const MyPokemonProvider = props => {
         totalAmount: 0,
         addItem: addItemToMyPokemonHandler,
         removeItem: removeItemFromMyPokemonHandler,
-
     };
+
+    
+    useEffect(() => {
+        console.log("tes " + myPokemonsState);
+        localStorage.setItem('items', JSON.stringify(myPokemonsState))
+    },[myPokemonsState]);
 
     return <MyPokemonContext.Provider value={pokemonContex} >
         {props.children}

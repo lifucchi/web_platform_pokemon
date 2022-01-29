@@ -1,6 +1,4 @@
 import React, { Fragment } from "react";
-
-// import pokemonImage from '../../assets/meals.jpg';
 import classes from './Header.module.css';
 import HeaderPokemonButton from "./HeaderPokemonButton";
 

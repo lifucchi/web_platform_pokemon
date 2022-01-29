@@ -7,9 +7,8 @@ import MyPokemonItem from "./MyPokemonItem";
 const MyPokemons = (props) => {
 
     const myPokemonctx = useContext(MyPokemonContext);
-
-    const totalAmount = myPokemonctx.totalAmount.toFixed(2);
-    const hasItem = myPokemonctx.items.length > 0;
+    // const totalAmount = myPokemonctx.totalAmount.toFixed(2);
+    // const hasItem = myPokemonctx.items.length > 0;
 
     const myPokemonItemRemoveHandler = id => {
         myPokemonctx.removeItem(id);
@@ -20,7 +19,6 @@ const MyPokemons = (props) => {
         myPokemonctx.addItem(
             { id :item.id, name: item.name , amount: 1 }
             );
-
     };
 
 
@@ -28,14 +26,12 @@ const MyPokemons = (props) => {
     <ul  className={classes['cart-items']}>
         {
             myPokemonctx.items.map((item) => (
-                // <li>{item.name}</li>
                 <MyPokemonItem 
                 key = {item.id} 
                 name= {item.name}
                 amount = {item.amount}
                 onRemove =  {myPokemonItemRemoveHandler.bind(null, item.id)}
                 onAdd =  {myPokemonItemAddHandler.bind(null, item )}
-
                 />
             ) )
         }
@@ -44,12 +40,10 @@ const MyPokemons = (props) => {
         <Modal onClose = {props.onClose}>
             {MyPokemonItems}
             <div>
-                {/* <span>Total Amount</span>    */}
-                {/* <span>{totalAmount}</span> */}
             </div>
             <div className={classes.actions} >
                 <button className={classes['button--alt']} onClick={props.onClose} >  Close</button>
-                {hasItem && <button className={classes.button} >Order</button>}
+                {/* {hasItem && <button className={classes.button} >Order</button>} */}
             </div>
         </Modal>
     );
