@@ -12,26 +12,32 @@ const myPokemonReducer = (state, action) => {
     if (action.type === 'ADD') {
         // console.log(state);
         // console.log(action);
-        const existingCartItemIndex = state.items.findIndex(
-            (item) => item.id === action.item.id
-        );
-        const existingCartItem = state.items[existingCartItemIndex];
-        let updatedItems;
+        // const existingCartItemIndex = state.items.findIndex(
+        //     (item) => item.id === action.item.id
+        // );
+        // const existingCartItem = state.items[existingCartItemIndex];
+        // let updatedItems;
 
-        if (existingCartItem) {
-            const updatedItem = {
-                id: existingCartItem.id,
-                name: existingCartItem.name,
-                amount: existingCartItem.amount + action.item.amount,
-            };
-            updatedItems = [...state.items];
-            updatedItems[existingCartItemIndex] = updatedItem;
-        } else {
-            updatedItems = state.items.concat(action.item);
-        }
+        // if (existingCartItem) {
+        //     const updatedItem = {
+        //         id: existingCartItem.id,
+        //         name: existingCartItem.name,
+        //         amount: existingCartItem.amount + action.item.amount,
+        //     };
+        //     updatedItems = [...state.items];
+        //     updatedItems[existingCartItemIndex] = updatedItem;
+        // } else {
+        //     updatedItems = state.items.concat(action.item);
+        // }
 
+        // return {
+        //     items: updatedItems,
+        // };
+        const updatedItems = state.items.concat(action.item);
+        const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount;
         return {
-            items: updatedItems,
+          items: updatedItems,
+          totalAmount: updatedTotalAmount
         };
 
     }
@@ -46,7 +52,7 @@ const myPokemonReducer = (state, action) => {
 
           if (existingItem.amount === 1) {
 
-            updatedItems = state.items.filter(item => item.id !== action.id);
+            updatedItems = state.items.filter(item => item.namePokemon !== action.namePokemon);
 
           } else {
             const updatedItem = { id:existingItem.id,name:existingItem.name, amount: existingItem.amount - 1 };
@@ -74,8 +80,8 @@ const MyPokemonProvider = (props) => {
 
     useEffect(() => {
         // storing input name
-        localStorage.setItem("items", JSON.stringify(defaultMyPokemonsState));
-      }, [defaultMyPokemonsState]);
+        localStorage.setItem("items", JSON.stringify(myPokemonsState));
+      }, [myPokemonsState]);
 
   
     const addItemToMyPokemonHandler = item => {
