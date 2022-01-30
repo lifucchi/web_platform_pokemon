@@ -6,12 +6,8 @@ const PokemonSummary = () => {
     <section className={classes.summary}>
       <h2>Pokemon</h2>
       <p>
-        Catch Them All!
+        Gotta Catch 'Em All
       </p>
-      {/* <p>
-        All our meals are cooked with high-quality ingredients, just-in-time and
-        of course by experienced chefs!
-      </p> */}
     </section>
   );
 };
