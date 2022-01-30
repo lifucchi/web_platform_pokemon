@@ -30,6 +30,7 @@ const MyPokemons = (props) => {
                 key = {item.id} 
                 name= {item.name}
                 amount = {item.amount}
+                namePokemon ={item.namePokemon}
                 onRemove =  {myPokemonItemRemoveHandler.bind(null, item.id)}
                 onAdd =  {myPokemonItemAddHandler.bind(null, item )}
                 />

@@ -10,11 +10,14 @@ import Modal from '../../UI/Modal'
 const PokemonItem = (props) => {
 
     const myPokemonctx = useContext(MyPokemonContext);
-    const addToMyPokemonHandler = amount => {
+
+    const addToMyPokemonHandler = nama => {
+        console.log("ini di pokemin item " + nama);
         myPokemonctx.addItem({
             id: props.id,
             name: props.name,
-            amount: amount
+            namePokemon: nama,
+            amount: 1
         });
 
     };
@@ -35,12 +38,8 @@ const PokemonItem = (props) => {
 
     return (
         <Card >
-            <li  onClick={showPokemonsHandler}   >
-                {/* <div> */}
-                    {/* <div > */}
-                        <h3 className={classes.name}>{props.pokemon.name}</h3>
-                    {/* </div> */}
-                {/* </div> */}
+            <li onClick={showPokemonsHandler}   >
+                <h3 className={classes.name}>{props.pokemon.name}</h3>
             </li>
             <div>
                 {pokemonDetailIsShown && <PokemonItemForm isPokemon={props.pokemon} onClose={hidePokemonsHandler} onAddToMyPokemons={addToMyPokemonHandler} id={props.id} />}

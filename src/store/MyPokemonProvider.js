@@ -63,10 +63,12 @@ const myPokemonReducer = (state, action) => {
 
 const MyPokemonProvider = (props) => {
 
-    const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState, () =>{
-        const localData = localStorage.getItem('items');
-        return localData ? JSON.parse(localData) : [];
-    })
+    // const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState, () =>{
+    //     const localData = localStorage.getItem('items');
+    //     return localData ? JSON.parse(localData) : [];
+    // })
+
+    const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState)
 
     const addItemToMyPokemonHandler = item => {
         dispatchMyPokemosAction({ type: 'ADD', item: item });
@@ -83,10 +85,9 @@ const MyPokemonProvider = (props) => {
         removeItem: removeItemFromMyPokemonHandler,
     };
 
-    useEffect(() => {
-        console.log("tes " + myPokemonsState);
-        localStorage.setItem('items', JSON.stringify(myPokemonsState))
-    },[myPokemonsState]);
+    // useEffect(() => {
+    //     localStorage.setItem('items', JSON.stringfy(myPokemonsState))
+    // },[myPokemonsState]);
 
     return <MyPokemonContext.Provider value={pokemonContex} >
         {props.children}
