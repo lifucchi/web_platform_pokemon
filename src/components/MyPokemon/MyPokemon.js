@@ -37,10 +37,7 @@ const MyPokemons = (props) => {
     return(
         <Modal onClose = {props.onClose}>
             {MyPokemonItems}
-            <div>
-                {/* <span>Total Amount</span>    */}
 
-            </div>
             <div className={classes.actions} >
                 <button className={classes['button--alt']} onClick={props.onClose} >Close</button>
             </div>

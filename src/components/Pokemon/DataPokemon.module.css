@@ -22,3 +22,34 @@
       transform: translateY(0);
     }
   }
+
+ 
+  .actions {
+    text-align: center;
+  }
+  
+  .actions button {
+    font: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #27913e;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    margin-left: 1rem;
+  }
+  
+  .actions button:hover,
+  .actions button:active {
+    background-color: #a1e9b3;
+    border-color: #a1e9b3;
+    color: white;
+  }
+  
+  .actions .button--alt {
+    color: #27913e;
+  }
+  
+  .actions .button {
+    background-color: #27913e;
+    color: white;
+  }

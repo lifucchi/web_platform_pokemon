@@ -14,7 +14,7 @@
     font-size: 1.5rem;
     margin: 1rem 0;
   }
-  
+
   .actions {
     text-align: right;
   }
@@ -23,7 +23,7 @@
     font: inherit;
     cursor: pointer;
     background-color: transparent;
-    border: 1px solid #a1e9b3;
+    border: 1px solid #27913e;
     padding: 0.5rem 2rem;
     border-radius: 25px;
     margin-left: 1rem;
@@ -32,15 +32,15 @@
   .actions button:hover,
   .actions button:active {
     background-color: #27913e;
-    border-color: #27913e;
+    border-color: #a1e9b3;
     color: white;
   }
   
   .actions .button--alt {
-    color: #a1e9b3;
+    color: #27913e;
   }
   
   .actions .button {
-    background-color: #a1e9b3;
+    background-color: #27913e;
     color: white;
   }

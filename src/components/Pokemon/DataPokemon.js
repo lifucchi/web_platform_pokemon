@@ -33,7 +33,7 @@ const DataPokemon = (props) => {
             })
         }
         createPokemonObject(data.results)
- 
+
     }
 
     useEffect(() => {
@@ -41,28 +41,31 @@ const DataPokemon = (props) => {
     }, [])
 
     const generateKey = (pre) => {
-        return `${ pre }_${ new Date().getTime() }`;
+        return `${pre}_${new Date().getTime()}`;
     }
 
     const pokemonList =
-    <ul >
-        {
-            allPokemons.map((pokemonStats, index) => (
-                <PokemonItem
-                key={ generateKey(pokemonStats.id) }
-                pokemon={pokemonStats}
-                id={pokemonStats.id}
-                name={pokemonStats.name}
-                type={pokemonStats.types[0].type.name}
-            />
-            ))
-        }
-    </ul>
+        <ul >
+            {
+                allPokemons.map((pokemonStats, index) => (
+                    <PokemonItem
+                        key={generateKey(pokemonStats.id)}
+                        pokemon={pokemonStats}
+                        id={pokemonStats.id}
+                        name={pokemonStats.name}
+                        type={pokemonStats.types[0].type.name}
+                    />
+                ))
+            }
+        </ul>
 
     return (<section className={classes.meals}>
         <ul>
             {pokemonList}
         </ul>
+        <div className={classes.actions} >
+            <button className={classes.button} onClick={() => getAllPokemons()}>Load more</button>
+        </div>
     </section>);
 
 };
