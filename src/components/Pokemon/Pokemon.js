@@ -44,7 +44,9 @@ const Pokemon = () => {
     return <Fragment>
         <PokemonSummary />
         {/* <ApolloProvider client={client}> */}
-            <DataPokemon />
+           
+            <DataPokemon/>
+
         {/* </ApolloProvider> */}
     </Fragment>
 

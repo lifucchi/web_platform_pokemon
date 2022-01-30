@@ -6,27 +6,34 @@ import  MyPokemonProvider  from "./store/MyPokemonProvider";
 
 function App() {
     const [myPokemonDetailIsShown, setMyPokemonDetailIsShown] = useState(false);
+    // const [pokemonDetailIsShown, setPokemonDetailIsShown] = useState(false);
 
-    // useEffect(()=>{
-    //     localStorage.setItem('modal', ahaha)
-    // },[myPokemonDetailIsShown]);
 
-    const showPokemonDetailHandler = () => {
+    const showMyPokemonsHandler = () => {
         setMyPokemonDetailIsShown(true);
     };
 
-    const hidePokemonDetailHandler = () => {
+    const hideMyPokemonsHandler = () => {
         setMyPokemonDetailIsShown(false);
     }
 
+    // const showPokemonsHandler = () => {
+    //     setPokemonDetailIsShown(true);
+    // };
+
+    // const hidePokemonsHandler = () => {
+    //     setPokemonDetailIsShown(false);
+    // }
+
     return (
         <MyPokemonProvider>
-            {myPokemonDetailIsShown && <MyPokemon onClose={hidePokemonDetailHandler} />}
-            <Header onShowMyPokemon={showPokemonDetailHandler} />
-            
+            {myPokemonDetailIsShown && <MyPokemon onClose={hideMyPokemonsHandler} />}
+            <Header onShowMyPokemon={showMyPokemonsHandler} />
+
             <main>
-                <Pokemon />
+                 <Pokemon />
             </main>
+
         </MyPokemonProvider>
     );
 }

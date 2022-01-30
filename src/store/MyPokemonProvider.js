@@ -32,7 +32,6 @@ const myPokemonReducer = (state, action) => {
 
         return {
             items: updatedItems,
-            // totalAmount: updatedTotalAmount,
         };
 
     }
@@ -69,7 +68,6 @@ const MyPokemonProvider = (props) => {
         return localData ? JSON.parse(localData) : [];
     })
 
-
     const addItemToMyPokemonHandler = item => {
         dispatchMyPokemosAction({ type: 'ADD', item: item });
     };
@@ -85,7 +83,6 @@ const MyPokemonProvider = (props) => {
         removeItem: removeItemFromMyPokemonHandler,
     };
 
-    
     useEffect(() => {
         console.log("tes " + myPokemonsState);
         localStorage.setItem('items', JSON.stringify(myPokemonsState))

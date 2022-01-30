@@ -1,5 +1,7 @@
 .form {
-    text-align: right;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
   }
   
   .form button {
@@ -18,3 +20,120 @@
     background-color: #641e03;
     border-color: #641e03;
   }
+
+  .cart-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 20rem;
+    overflow: auto;
+  }
+  
+  .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .actions {
+    text-align: right;
+  }
+  
+  .actions button {
+    font: inherit;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #8a2b06;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    margin-left: 1rem;
+  }
+  
+  .actions button:hover,
+  .actions button:active {
+    background-color: #5a1a01;
+    border-color: #5a1a01;
+    color: white;
+  }
+  
+  .actions .button--alt {
+    color: #8a2b06;
+  }
+  
+  .actions .button {
+    background-color: #8a2b06;
+    color: white;
+  }
+
+  .cart-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 5rem;
+    overflow: auto;
+  }
+
+ .thumb-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 90%; */
+  border-bottom: 1px solid #ccc;
+}
+
+.image-container img {
+  width: 150px;
+  height: 150px;
+ }
+
+ .move-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 90%; */
+  border-bottom: 1px solid #ccc;
+}
+
+
+ .rock {
+  background-color: rgb(148, 81, 81);
+}
+.ghost {
+  background-color: rgb(247, 247, 247);
+}
+.electric {
+  background-color: rgb(255, 255, 161);
+}
+.bug {
+  background-color: #F6D6A7;
+}
+.poison {
+  background-color: #e0a7f6;
+}
+.normal {
+  background-color: #F4F4F4;
+}
+.fairy {
+  background-color: rgba(255, 192, 203, 0.863);
+}
+.fire {
+  background-color: #FBE3DF;
+}
+.grass {
+  background-color:#E2F9E1;
+}
+.water {
+  background-color:#E0F1FD;
+}

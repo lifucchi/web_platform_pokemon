@@ -7,5 +7,4 @@ const MyPokemonContext = React.createContext({
     removeItem: (id) => {}
   });
 
-
 export default MyPokemonContext;

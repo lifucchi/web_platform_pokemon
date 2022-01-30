@@ -8,7 +8,7 @@ const MyPokemons = (props) => {
 
     const myPokemonctx = useContext(MyPokemonContext);
     // const totalAmount = myPokemonctx.totalAmount.toFixed(2);
-    // const hasItem = myPokemonctx.items.length > 0;
+    const hasItem = myPokemonctx.items.length > 0;
 
     const myPokemonItemRemoveHandler = id => {
         myPokemonctx.removeItem(id);
@@ -40,10 +40,12 @@ const MyPokemons = (props) => {
         <Modal onClose = {props.onClose}>
             {MyPokemonItems}
             <div>
+                {/* <span>Total Amount</span>    */}
+
             </div>
             <div className={classes.actions} >
                 <button className={classes['button--alt']} onClick={props.onClose} >  Close</button>
-                {/* {hasItem && <button className={classes.button} >Order</button>} */}
+                {hasItem && <button className={classes.button} >Order</button>}
             </div>
         </Modal>
     );

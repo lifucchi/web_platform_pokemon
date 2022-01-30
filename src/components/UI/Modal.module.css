@@ -7,10 +7,11 @@
     z-index: 20;
     background-color: rgba(0, 0, 0, 0.75);
   }
+
   
   .modal {
     position: fixed;
-    top: 20vh;
+    top: 5vh;
     left: 5%;
     width: 100%;
     background-color: white;
@@ -19,7 +20,10 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     z-index: 30;
     animation: slide-down 300ms ease-out forwards;
+
   }
+
+  
   
   @media (min-width: 768px) {
     .modal {
@@ -30,8 +34,8 @@
 
   @media (max-width: 415px) {
     .modal {
-      width: 18rem;
-      left: calc(50% - 10rem);
+      width: 22rem;
+      left: calc(50% - 12rem);
     }
   }
   

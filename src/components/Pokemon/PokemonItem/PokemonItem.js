@@ -1,33 +1,51 @@
-import React, {useContext} from "react";
+import React, { useContext, useState } from "react";
 import classes from './PokemonItem.module.css'
 import Card from "../../UI/Card";
 import PokemonItemForm from "./PokemonItemForm";
 import MyPokemonContext from "../../../store/myPokemon-context";
+import Modal from '../../UI/Modal'
 
-const PokemonItem = props => {
-    // const price = `$${props.price.toFixed(2)}` ;
+
+
+const PokemonItem = (props) => {
+
     const myPokemonctx = useContext(MyPokemonContext);
-    const addToMyPokemonHandler = amount =>{
-          
+    const addToMyPokemonHandler = amount => {
         myPokemonctx.addItem({
-            id:props.id,
+            id: props.id,
             name: props.name,
             amount: amount
         });
+
+        console.log(props.id);
+    };
+
+    const [pokemonDetailIsShown, setPokemonDetailIsShown] = useState(false);
+    // const [selectedProject, setSelectedProject] = useState(null);
+
+
+    const hidePokemonsHandler = () => {
+        // setSelectedProject(null);
+        setPokemonDetailIsShown(false);
+    };
+
+    const showPokemonsHandler = (pokemon) => {
+        // setSelectedProject(pokemon);
+        setPokemonDetailIsShown(true);
     };
 
     return (
-        <Card>
-            <li className={classes.meal}>
-                <div>
-                    <h3 className={classes.name} >{props.name}</h3>
-                    {/* <div className={classes.description}>{props.name} </div> */}
-                    <div className={classes.price}>{props.name} </div>
-                </div>
-                <div>
-                   <PokemonItemForm onAddToMyPokemons={addToMyPokemonHandler}  id={props.id} /> 
-                </div>
+        <Card >
+            <li  onClick={showPokemonsHandler}   >
+                {/* <div> */}
+                    {/* <div > */}
+                        <h3 className={classes.name}>{props.pokemon.name}</h3>
+                    {/* </div> */}
+                {/* </div> */}
             </li>
+            <div>
+                {pokemonDetailIsShown && <PokemonItemForm isPokemon={props.pokemon} onClose={hidePokemonsHandler} onAddToMyPokemons={addToMyPokemonHandler} id={props.id} />}
+            </div>
         </Card>
 
     );

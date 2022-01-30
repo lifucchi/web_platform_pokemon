@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Card from "../UI/Card";
 import PokemonItem from "./PokemonItem/PokemonItem";
 import classes from './DataPokemon.module.css';
 import regeneratorRuntime from "regenerator-runtime";
 // import { useQuery } from "@apollo/react-hooks";
 // import { GET_POKEMONS } from "../graphql/getPokemon";
 
-
-const DataPokemon = () => {
+const DataPokemon = (props) => {
     // const { data: { pokemons } = [] = {} } = useQuery(
     //     GET_POKEMONS, {
     //     variables: {
@@ -31,33 +29,32 @@ const DataPokemon = () => {
                 const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
                 const data = await res.json()
                 setAllPokemons(currentList => [...currentList, data])
+                console.log(data);
                 await allPokemons.sort((a, b) => a.id - b.id)
             })
         }
         createPokemonObject(data.results)
+ 
     }
 
     useEffect(() => {
         getAllPokemons()
     }, [])
 
-    // const mealList = DUMMY_MEALS.map(meal => <PokemonItem key={meal.id} name={meal.name} description={meal.description} price={meal.price} />);
     const pokemonList = allPokemons.map((pokemonStats, index) =>
         <PokemonItem
             key={pokemonStats.id}
+            pokemon={pokemonStats}
             id={pokemonStats.id}
-            image={pokemonStats.sprites.other.dream_world.front_default}
             name={pokemonStats.name}
             type={pokemonStats.types[0].type.name}
-        />)
+        />
+    )
 
     return (<section className={classes.meals}>
-        {/* <Card> */}
-            <ul>
-                {pokemonList}
-            </ul>
-        {/* </Card> */}
-
+        <ul>
+            {pokemonList}
+        </ul>
     </section>);
 
 };
