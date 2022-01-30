@@ -11,20 +11,27 @@ const PokemonItemForm = props => {
 
     const submitHander = (event) => {
         event.preventDefault();
-        const enteredAmount = amountInputRef.current.value;
-        const enteredAmountNumber = +enteredAmount;
-
-        if (enteredAmount.trim().length === 0 || enteredAmountNumber < 1 || enteredAmountNumber > 5) {
-            setAmountIsValid(false);
-            return;
-        }
-        props.onAddToMyPokemons(enteredAmountNumber)
+            const enteredAmount = amountInputRef.current.value;
+            const enteredAmountNumber = +enteredAmount;
+            props.onAddToMyPokemons(enteredAmountNumber)
+            setAmountIsValid(true);
     };
 
-    // console.log(props.isPokemon.moves.length);
+    const gachaHander = (event) => {
+        event.preventDefault();
+
+        const gacha = Math.floor(Math.random() * 101);
+        console.log(gacha);
+
+        if (gacha > 50) {
+            setAmountIsValid(false);
+            return;
+        } else {
+            setAmountIsValid('dapat');
+        }
 
 
-
+    };
 
     const pokemonMoves =
         <ul className={classes['cart-items']}>
@@ -46,10 +53,10 @@ const PokemonItemForm = props => {
             </div>
 
             <div>
-                <h2>Type : {props.isPokemon.types[0].type.name}</h2> 
+                <h2>Type : {props.isPokemon.types[0].type.name}</h2>
             </div>
 
-            <div  className={classes['image-container']}>
+            <div className={classes['image-container']}>
                 <img className={classes.image} src={props.isPokemon.sprites.other.dream_world.front_default} ></img>
             </div>
             <div>
@@ -57,23 +64,30 @@ const PokemonItemForm = props => {
                 {pokemonMoves}
             </div>
             <br></br>
+
             <form className={classes.form} onSubmit={submitHander}>
-                <Input
-                    ref={amountInputRef}
-                    label='Amount'
-                    input={{
-                        id: 'amount_' + props.id, // this changed!
-                        type: 'number',
-                        min: '1',
-                        max: '5',
-                        step: '1',
-                        defaultValue: '1',
-                    }}
-                />
-                <button> Catch</button>
+                {<button onClick={gachaHander} >Catch</button>}
                 {!amountIsValid && <p>Maaf anda belum beruntung</p>}
+                {amountIsValid == 'dapat' && <p>Beri Nama Pokemon</p>}
+                {amountIsValid == 'dapat' &&
+                    <Input
+                        ref={amountInputRef}
+                        label='Nama'
+                        input={{
+                            id: 'amount_' + props.id, // this changed!
+                            type: 'number',
+                            min: '1',
+                            max: '5',
+                            step: '1',
+                            defaultValue: '1',
+                        }}
+                    />
+                }
+                {amountIsValid == 'dapat' && <button >Save Nama</button>}
             </form>
             <br></br>
+            <br></br>
+
             <div className={classes.actions} >
                 <button className={classes['button--alt']} onClick={props.onClose} >  Close</button>
                 {/* {hasItem && <button className={classes.button} >Order</button>} */}

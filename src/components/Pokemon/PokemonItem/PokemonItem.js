@@ -17,7 +17,6 @@ const PokemonItem = (props) => {
             amount: amount
         });
 
-        console.log(props.id);
     };
 
     const [pokemonDetailIsShown, setPokemonDetailIsShown] = useState(false);
