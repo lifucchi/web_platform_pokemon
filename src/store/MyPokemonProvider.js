@@ -19,7 +19,6 @@ const myPokemonReducer = (state, action) => {
             namePokemon: action.item.namePokemon,
         };
         const updatedItems = state.items.concat(updatedItem);
-        console.log(action.item.key);
         return {
             items: updatedItems,
         };
@@ -29,8 +28,6 @@ const myPokemonReducer = (state, action) => {
 
         let updatedItems;
         updatedItems = state.items.filter(item => item.id !== action.id);
-        console.log(action);
-
 
         return {
             items: updatedItems,

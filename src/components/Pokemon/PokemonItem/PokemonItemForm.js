@@ -20,7 +20,6 @@ const PokemonItemForm = props => {
         event.preventDefault();
 
         const gacha = Math.floor(Math.random() * 101);
-        console.log(gacha);
 
         if (gacha > 50) {
             setAmountIsValid(false);

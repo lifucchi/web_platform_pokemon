@@ -9,7 +9,6 @@ const PokemonItem = (props) => {
     const myPokemonctx = useContext(MyPokemonContext);
 
     const addToMyPokemonHandler = nama => {
-        console.log("ini di pokemin item " + nama);
         myPokemonctx.addItem({
             id: props.id,
             name: props.name,
@@ -20,16 +19,12 @@ const PokemonItem = (props) => {
     };
 
     const [pokemonDetailIsShown, setPokemonDetailIsShown] = useState(false);
-    // const [selectedProject, setSelectedProject] = useState(null);
-
 
     const hidePokemonsHandler = () => {
-        // setSelectedProject(null);
         setPokemonDetailIsShown(false);
     };
 
     const showPokemonsHandler = (pokemon) => {
-        // setSelectedProject(pokemon);
         setPokemonDetailIsShown(true);
     };
 
@@ -42,7 +37,6 @@ const PokemonItem = (props) => {
                 {pokemonDetailIsShown && <PokemonItemForm isPokemon={props.pokemon} onClose={hidePokemonsHandler} onAddToMyPokemons={addToMyPokemonHandler} id={props.id} />}
             </div>
         </Card>
-
     );
 };
 
