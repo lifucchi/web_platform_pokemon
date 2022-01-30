@@ -98,6 +98,14 @@
   height: 150px;
  }
 
+ .container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 35rem;
+  overflow: auto;
+ }
+
  .move-container {
   display: flex;
   justify-content: center;

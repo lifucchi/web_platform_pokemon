@@ -12,7 +12,7 @@ const PokemonItemForm = props => {
     const submitHander = (event) => {
         event.preventDefault();
             const enteredAmount = amountInputRef.current.value;
-            const enteredAmountNumber = +enteredAmount;
+            const enteredAmountNumber = enteredAmount;
             props.onAddToMyPokemons(enteredAmountNumber)
             setAmountIsValid(true);
     };
@@ -29,8 +29,6 @@ const PokemonItemForm = props => {
         } else {
             setAmountIsValid('dapat');
         }
-
-
     };
 
     const pokemonMoves =
@@ -46,7 +44,7 @@ const PokemonItemForm = props => {
         </ul>
 
     return <Modal onClose={props.onClose}>
-        <div>
+        <div className={classes.container}>
             <div className={classes['thumb-container']} >
                 <h1>#{props.isPokemon.id}</h1>
                 <h2>{props.isPokemon.name}</h2>
@@ -75,11 +73,7 @@ const PokemonItemForm = props => {
                         label='Nama'
                         input={{
                             id: 'amount_' + props.id, // this changed!
-                            type: 'number',
-                            min: '1',
-                            max: '5',
-                            step: '1',
-                            defaultValue: '1',
+                            type: 'text',
                         }}
                     />
                 }
