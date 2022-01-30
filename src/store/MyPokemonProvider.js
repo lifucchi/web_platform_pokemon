@@ -34,35 +34,41 @@ const myPokemonReducer = (state, action) => {
         //     items: updatedItems,
         // };
         const updatedItems = state.items.concat(action.item);
-        const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount;
+
         return {
-          items: updatedItems,
-          totalAmount: updatedTotalAmount
+            items: updatedItems,
+
         };
 
     }
 
     if (action.type === 'REMOVE') {
-        const existingCartItemIndex = state.items.findIndex(
-            (item) => item.id === action.id
-          );
-          const existingItem = state.items[existingCartItemIndex];
+        //         const existingCartItemIndex = state.items.findIndex(
+        //             (item) => item.id === action.id
+        //           );
+        //           const existingItem = state.items[existingCartItemIndex];
 
-          let updatedItems;
+        //           console.log(state.items);
+        // console.log("ini action");
+        //           console.log(action);
 
-          if (existingItem.amount === 1) {
+        //           if (existingItem.amount === 1) {
 
-            updatedItems = state.items.filter(item => item.namePokemon !== action.namePokemon);
+        //             // updatedItems = state.items.filter(item => item.namePokemon !== action.namePokemon);
 
-          } else {
-            const updatedItem = { id:existingItem.id,name:existingItem.name, amount: existingItem.amount - 1 };
-            updatedItems = [...state.items];
-            updatedItems[existingCartItemIndex] = updatedItem;
-          }
-     
+        //           } else {
+        //             const updatedItem = { id:existingItem.id,name:existingItem.name, amount: existingItem.amount - 1 };
+        //             updatedItems = [...state.items];
+        //             updatedItems[existingCartItemIndex] = updatedItem;
+        //           }
+        let updatedItems;
+        updatedItems = state.items.filter(item => item.namePokemon !== action.id);
+        console.log(action);
+
+
         return {
             items: updatedItems,
-          };
+        };
     }
     return defaultMyPokemonsState;
 }
@@ -71,7 +77,7 @@ const myPokemonReducer = (state, action) => {
 
 const MyPokemonProvider = (props) => {
 
-    const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState, () =>{
+    const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState, () => {
         const localData = localStorage.getItem('items');
         return localData ? JSON.parse(localData) : defaultMyPokemonsState;
     })
@@ -81,9 +87,9 @@ const MyPokemonProvider = (props) => {
     useEffect(() => {
         // storing input name
         localStorage.setItem("items", JSON.stringify(myPokemonsState));
-      }, [myPokemonsState]);
+    }, [myPokemonsState]);
 
-  
+
     const addItemToMyPokemonHandler = item => {
         dispatchMyPokemosAction({ type: 'ADD', item: item });
     };
@@ -99,7 +105,7 @@ const MyPokemonProvider = (props) => {
         removeItem: removeItemFromMyPokemonHandler,
     };
 
-  
+
     return <MyPokemonContext.Provider value={pokemonContex} >
         {props.children}
     </MyPokemonContext.Provider>

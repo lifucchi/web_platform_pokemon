@@ -10,8 +10,8 @@ const MyPokemons = (props) => {
     // const totalAmount = myPokemonctx.totalAmount.toFixed(2);
     const hasItem = myPokemonctx.items.length > 0;
 
-    const myPokemonItemRemoveHandler = id => {
-        myPokemonctx.removeItem(id);
+    const myPokemonItemRemoveHandler = namePokemon => {
+        myPokemonctx.removeItem(namePokemon);
     };
 
     const myPokemonItemAddHandler = item => {
@@ -31,7 +31,7 @@ const MyPokemons = (props) => {
                 name= {item.name}
                 amount = {item.amount}
                 namePokemon ={item.namePokemon}
-                onRemove =  {myPokemonItemRemoveHandler.bind(null, item.id)}
+                onRemove =  {myPokemonItemRemoveHandler.bind(null, item.namePokemon)}
                 onAdd =  {myPokemonItemAddHandler.bind(null, item )}
                 />
             ) )
