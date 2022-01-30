@@ -4,7 +4,6 @@ import Input from "../../UI/Input";
 import Modal from '../../UI/Modal'
 import PokemonMove from "./PokemonMove";
 
-
 const PokemonItemForm = props => {
     const [amountIsValid, setAmountIsValid] = useState(true);
     const amountInputRef = useRef();
@@ -52,8 +51,8 @@ const PokemonItemForm = props => {
 
             <form className={classes.form} onSubmit={submitHander}>
                 {<button onClick={gachaHander} >Catch</button>}
-                {!amountIsValid && <p>Maaf anda belum beruntung</p>}
-                {amountIsValid == 'dapat' && <p>Beri Nama Pokemon</p>}
+                {!amountIsValid && <p>Sorry , it runs away</p>}
+                {amountIsValid == 'dapat' && <p>Give a name for Pokemon</p>}
                 {amountIsValid == 'dapat' &&
                     <Input
                         ref={amountInputRef}

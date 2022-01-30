@@ -3,9 +3,6 @@ import classes from './PokemonItem.module.css'
 import Card from "../../UI/Card";
 import PokemonItemForm from "./PokemonItemForm";
 import MyPokemonContext from "../../../store/myPokemon-context";
-import Modal from '../../UI/Modal'
-
-
 
 const PokemonItem = (props) => {
 
