@@ -7,8 +7,8 @@
   .form button {
     font: inherit;
     cursor: pointer;
-    background-color: #8a2b06;
-    border: 1px solid #8a2b06;
+    background-color: #27913e;
+    border: 1px solid #27913e;
     color: white;
     padding: 0.25rem 2rem;
     border-radius: 20px;
@@ -17,8 +17,8 @@
   
   .form button:hover,
   .form button:active {
-    background-color: #641e03;
-    border-color: #641e03;
+    background-color: #1e7230;
+    border-color: #1e7230;
   }
 
   .cart-items {
@@ -46,7 +46,7 @@
     font: inherit;
     cursor: pointer;
     background-color: transparent;
-    border: 1px solid #8a2b06;
+    border: 1px solid #1e7230;
     padding: 0.5rem 2rem;
     border-radius: 25px;
     margin-left: 1rem;
@@ -54,17 +54,17 @@
   
   .actions button:hover,
   .actions button:active {
-    background-color: #5a1a01;
-    border-color: #5a1a01;
+    background-color: #1e7230;
+    border-color: #1e7230;
     color: white;
   }
   
   .actions .button--alt {
-    color: #8a2b06;
+    color: #1e7230;
   }
   
   .actions .button {
-    background-color: #8a2b06;
+    background-color: #27913e;
     color: white;
   }
 

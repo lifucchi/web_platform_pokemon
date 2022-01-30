@@ -1,5 +1,4 @@
 import React from "react";
-import classes from './PokemonMove.module.css';
 
 const PokemonMove = (props) => {
     return (

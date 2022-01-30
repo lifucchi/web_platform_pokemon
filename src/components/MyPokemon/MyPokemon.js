@@ -7,9 +7,6 @@ import MyPokemonItem from "./MyPokemonItem";
 const MyPokemons = (props) => {
 
     const myPokemonctx = useContext(MyPokemonContext);
-    // const totalAmount = myPokemonctx.totalAmount.toFixed(2);
-    const hasItem = myPokemonctx.items.length > 0;
-
     const myPokemonItemRemoveHandler = namePokemon => {
         myPokemonctx.removeItem(namePokemon);
     };
@@ -45,8 +42,7 @@ const MyPokemons = (props) => {
 
             </div>
             <div className={classes.actions} >
-                <button className={classes['button--alt']} onClick={props.onClose} >  Close</button>
-                {hasItem && <button className={classes.button} >Order</button>}
+                <button className={classes['button--alt']} onClick={props.onClose} >Close</button>
             </div>
         </Modal>
     );
