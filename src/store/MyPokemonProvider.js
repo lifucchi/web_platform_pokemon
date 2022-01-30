@@ -61,15 +61,23 @@ const myPokemonReducer = (state, action) => {
     return defaultMyPokemonsState;
 }
 
+
+
 const MyPokemonProvider = (props) => {
 
-    // const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState, () =>{
-    //     const localData = localStorage.getItem('items');
-    //     return localData ? JSON.parse(localData) : [];
-    // })
+    const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState, () =>{
+        const localData = localStorage.getItem('items');
+        return localData ? JSON.parse(localData) : defaultMyPokemonsState;
+    })
+    //   const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState)
 
-    const [myPokemonsState, dispatchMyPokemosAction] = useReducer(myPokemonReducer, defaultMyPokemonsState)
 
+    useEffect(() => {
+        // storing input name
+        localStorage.setItem("items", JSON.stringify(defaultMyPokemonsState));
+      }, [defaultMyPokemonsState]);
+
+  
     const addItemToMyPokemonHandler = item => {
         dispatchMyPokemosAction({ type: 'ADD', item: item });
     };
@@ -85,10 +93,7 @@ const MyPokemonProvider = (props) => {
         removeItem: removeItemFromMyPokemonHandler,
     };
 
-    // useEffect(() => {
-    //     localStorage.setItem('items', JSON.stringfy(myPokemonsState))
-    // },[myPokemonsState]);
-
+  
     return <MyPokemonContext.Provider value={pokemonContex} >
         {props.children}
     </MyPokemonContext.Provider>
