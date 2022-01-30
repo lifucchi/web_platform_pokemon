@@ -9,7 +9,7 @@ const Header = (props) => {
             <HeaderPokemonButton onClick= {props.onShowMyPokemon} />
         </header>
         <div className={classes['main-image']}>
-            <img src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/01/Pokemon-legendaries-starters-and-more.jpg?q=50&fit=contain&w=960&h=500&dpr=1.5" />
+            <img src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/01/Pokemon-legendaries-starters-and-more.jpg?q=50&fit=contain&w=960&h=500&dpr=1.5" alt="Pokemon" />
         </div>
 
     </Fragment>
