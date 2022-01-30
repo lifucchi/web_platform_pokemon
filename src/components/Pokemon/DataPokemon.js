@@ -50,12 +50,16 @@ const DataPokemon = (props) => {
     //     />
     // )
 
+    const generateKey = (pre) => {
+        return `${ pre }_${ new Date().getTime() }`;
+    }
+
     const pokemonList =
     <ul >
         {
             allPokemons.map((pokemonStats, index) => (
                 <PokemonItem
-                key={pokemonStats.id}
+                key={ generateKey(pokemonStats.id) }
                 pokemon={pokemonStats}
                 id={pokemonStats.id}
                 name={pokemonStats.name}

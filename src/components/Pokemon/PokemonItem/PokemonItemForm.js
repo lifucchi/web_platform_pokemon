@@ -50,19 +50,6 @@ const PokemonItemForm = props => {
                 <h2>{props.isPokemon.name}</h2>
             </div>
 
-            <div>
-                <h2>Type : {props.isPokemon.types[0].type.name}</h2>
-            </div>
-
-            <div className={classes['image-container']}>
-                <img className={classes.image} src={props.isPokemon.sprites.other.dream_world.front_default} ></img>
-            </div>
-            <div>
-                <h2>Moves</h2>
-                {pokemonMoves}
-            </div>
-            <br></br>
-
             <form className={classes.form} onSubmit={submitHander}>
                 {<button onClick={gachaHander} >Catch</button>}
                 {!amountIsValid && <p>Maaf anda belum beruntung</p>}
@@ -80,6 +67,20 @@ const PokemonItemForm = props => {
                 {amountIsValid == 'dapat' && <button >Save Nama</button>}
             </form>
             <br></br>
+            <br></br>
+
+            
+            <div>
+                <h2>Type : {props.isPokemon.types[0].type.name}</h2>
+            </div>
+
+            <div className={classes['image-container']}>
+                <img className={classes.image} src={props.isPokemon.sprites.other.dream_world.front_default} ></img>
+            </div>
+            <div>
+                <h2>Moves</h2>
+                {pokemonMoves}
+            </div>
             <br></br>
 
             <div className={classes.actions} >

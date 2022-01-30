@@ -17,28 +17,40 @@ const myPokemonReducer = (state, action) => {
         // );
         // const existingCartItem = state.items[existingCartItemIndex];
         // let updatedItems;
+        // console.log(state.items);
 
         // if (existingCartItem) {
         //     const updatedItem = {
         //         id: existingCartItem.id,
         //         name: existingCartItem.name,
         //         amount: existingCartItem.amount + action.item.amount,
+        //         namePokemon: [existingCartItem.namePokemon, action.item.namePokemon],
+
         //     };
         //     updatedItems = [...state.items];
         //     updatedItems[existingCartItemIndex] = updatedItem;
         // } else {
         //     updatedItems = state.items.concat(action.item);
         // }
-
         // return {
         //     items: updatedItems,
         // };
-        const updatedItems = state.items.concat(action.item);
+
+        const d = new Date();
+        let ms = d.valueOf();
+        const updatedItem = {
+            id: ms,
+            name: action.item.name,
+            amount: action.item.amount,
+            namePokemon: action.item.namePokemon,
+        };
+        const updatedItems = state.items.concat(updatedItem);
+        console.log(action.item.key);
 
         return {
             items: updatedItems,
-
         };
+
 
     }
 
@@ -62,7 +74,7 @@ const myPokemonReducer = (state, action) => {
         //             updatedItems[existingCartItemIndex] = updatedItem;
         //           }
         let updatedItems;
-        updatedItems = state.items.filter(item => item.namePokemon !== action.id);
+        updatedItems = state.items.filter(item => item.id !== action.id);
         console.log(action);
 
 
