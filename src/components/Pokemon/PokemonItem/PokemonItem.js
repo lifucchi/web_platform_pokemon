@@ -29,10 +29,16 @@ const PokemonItem = (props) => {
     };
 
     return (
-        <Card >
-            <li onClick={showPokemonsHandler}   >
+        <Card  >
+            <li >
                 <h3 className={classes.name}>{props.pokemon.name}</h3>
+                <div className={classes.actions}>
+                    <button className={classes['actions .button--alt']} onClick={showPokemonsHandler} >
+                        Detail 
+                    </button>
+                </div>
             </li>
+
             <div>
                 {pokemonDetailIsShown && <PokemonItemForm isPokemon={props.pokemon} onClose={hidePokemonsHandler} onAddToMyPokemons={addToMyPokemonHandler} id={props.id} />}
             </div>
