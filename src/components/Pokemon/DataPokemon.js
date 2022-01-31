@@ -63,6 +63,7 @@ const DataPokemon = (props) => {
         <ul>
             {pokemonList}
         </ul>
+        
         <div className={classes.actions} >
             <button className={classes.button} onClick={() => getAllPokemons()}>Load more</button>
         </div>
