@@ -59,7 +59,7 @@ const DataPokemon = (props) => {
             }
         </ul>
 
-    return (<section className={classes.meals}>
+    return (<section className={classes.pokemons}>
         <ul>
             {pokemonList}
         </ul>

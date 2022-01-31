@@ -13,7 +13,7 @@ const MyPokemonItem = (props) => {
           <span className={classes.amount}>x {props.amount}</span>
         </div>
         <div className={classes.summary}>
-          <span className={classes.price}>Name : {props.namePokemon}</span>
+          <span className={classes.namePokemon}>Name : {props.namePokemon}</span>
           {/* <span className={classes.amount}>x {props.amount}</span> */}
         </div>
       </div>
